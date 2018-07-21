@@ -1,6 +1,10 @@
-# TodosAngularRedux
+# Todo app using Angular 6 and redux
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+
+The following additional packages were added:
+* @angular-redux/store - Angular bindings for Redux.
+* redux - A predictable state container for JavaScript apps.
 
 ## Development server
 
