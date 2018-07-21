@@ -1,3 +1,24 @@
-<p>
-  list works!
-</p>
+<div class="card" *ngIf="(todos | async).length > 0">
+  <div class="card-header">
+      <li class="row header">
+          <div class="col-md-1">ID</div>
+          <div class="col-md-5">Description</div>
+          <div class="col-md-2">Priority</div>
+          <div class="col-md-2">Assigned To</div>
+          <div class="col-md-2"></div>
+      </li>
+  </div>
+  <div class="card-body">
+    <li class="row"  *ngFor="let todo of (todos | async)">
+        <div class="col-md-1 mt-2" [class.complete]="todo.isCompleted">{{todo.id}}</div>
+        <div class="col-md-5 mt-2"  [class.complete]="todo.isCompleted">{{todo.description}}</div>
+        <div class="col-md-2 mt-2 priority {{todo.priority}}"  [class.complete]="todo.isCompleted">{{todo.priority}}</div>
+        <div class="col-md-2 mt-2"  [class.complete]="todo.isCompleted">{{todo.assignedTo}}</div>
+        <div class="col-md-2">
+          <button (click)="editTodo(todo)" class="btn btn-link" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button (click)="deleteTodo(todo.id)" class="btn btn-link" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+          <button (click)="toggleComplete(todo.id)"  class="btn btn-link" title="{{todo.isCompleted ? 'UnMark': 'Mark'}} Complete"><i class="fa" [ngClass]="{'fa-check': !todo.isCompleted, 'fa-undo': todo.isCompleted}"  aria-hidden="true"></i></button>
+        </div>
+    </li>
+   </div>
+</div>

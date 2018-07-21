@@ -1,3 +1,21 @@
-<p>
-  add works!
-</p>
+<h3>{{title}}</h3>
+<form class="form-inline">
+  <label class="sr-only" for="description">Name</label>
+  <input type="text" class="form-control mr-2" name="description" [(ngModel)]="todo.description" placeholder="Description">
+  <label class="sr-only" for="priority">Priority</label>
+  <select class="form-control mr-2" name="priority" [(ngModel)]="todo.priority">
+    <option value="" disabled>Priority</option>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+  <label class="sr-only" for="assignedTo">Assigned To</label>
+  <select class="form-control mr-2" name="assignedTo" [(ngModel)]="todo.assignedTo">
+    <option value="" disabled>Assigned To</option>
+    <option value="John">John</option>
+    <option value="Jill">Jill</option>
+    <option value="Mike">Mike</option>
+  </select>
+  <button (click)="saveTodo()" class="btn btn-primary  mr-2">Save</button>
+  <button (click)="cancelAdd()" class="btn btn-default  mr-2">Cancel</button>
+</form>

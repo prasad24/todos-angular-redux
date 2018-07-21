@@ -1,0 +1,26 @@
+.row {
+    &.header {
+        font-weight: bold;
+    }
+    button {
+        display: inline-block;
+    }
+
+    .priority {
+        font-weight: bold;
+        color: green;
+        &.low {
+            color: green;
+        }
+        &.medium {
+            color: orange;
+        }
+        &.high {
+            color:red;
+        }
+    }
+
+    .complete {
+        text-decoration: line-through;
+    }
+}

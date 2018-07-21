@@ -1,3 +1,15 @@
-<p>
-  overview works!
-</p>
+<div class="card">
+  <div class="card-header">
+      <h1>Todos App</h1>
+  </div>
+  <div class="card-body">
+      <div class="float-left" *ngIf="!showAdd"><button (click)="addTodo()" class="btn btn-primary">Add Todo</button></div>
+      <div class="float-right">&nbsp;|&nbsp; Total Todos: <span class="badge badge-pill badge-primary">{{ (todos | async).length}}</span></div>
+      <div class="float-right" *ngIf="(lastUpdated | async)">&nbsp;|&nbsp; Last Updated: {{ (lastUpdated | async) | date: 'MMM dd, y h:mm a' }}</div>
+      <div class="float-right" *ngIf="(lastCreated | async)">Last Created: {{ (lastCreated | async) | date: 'MMM dd, y h:mm a' }}</div>
+  </div>
+  <div class="card-footer">
+      <app-add [todo]="todo" (onCancel)="cancelAdd()" *ngIf="showAdd"></app-add>
+      <app-list (onEdit)="editTodo($event)" *ngIf="!showAdd"></app-list>
+  </div>
+</div>
